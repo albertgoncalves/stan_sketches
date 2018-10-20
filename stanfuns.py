@@ -5,14 +5,14 @@ from os import listdir
 from pickle import dump
 from pickle import load
 
-import pystan
+from pystan import StanModel
 
 
 def build_model(stan_file):
     pkl_file = stan_file.replace('.stan', '.pkl')
 
     if pkl_file not in listdir():
-        model = pystan.StanModel(file=stan_file)
+        model = StanModel(file=stan_file)
         pickle_to_file(model, pkl_file)
     else:
         model = pickle_from_file(pkl_file)
