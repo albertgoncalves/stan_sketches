@@ -1,13 +1,13 @@
 data {
     int n_samples; // number of times population sampled
     int sample_sizes[n_samples]; // available sample size per sample event
-    int n;         // total number of captures
-    int freq[n];   // recapture frequency
+    int n; // total number of captures
+    int freq[n]; // recapture frequency
     int min_bound; // number of unique labels -> minimum population size
 }
 
 parameters {
-    real<lower=1>         lambda_ss; // simple lower bound to sample size rate
+    real<lower=1> lambda_ss; // simple lower bound to sample size rate
     real<lower=min_bound> pop; // estimated population
 }
 

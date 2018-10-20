@@ -1,5 +1,5 @@
 data {
-    int  n_obs;
+    int n_obs;
     real obs[n_obs];
 }
 
