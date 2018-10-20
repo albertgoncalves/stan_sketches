@@ -4,7 +4,7 @@
 # via https://youtu.be/MTmnVBJ9gCI?t=176
 
 from collections import Counter
-from functools import reduce
+from functools   import reduce
 
 import matplotlib.pyplot as plt
 import numpy as np
