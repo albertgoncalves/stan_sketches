@@ -7,18 +7,18 @@ data {
 }
 
 parameters {
-    real<lower=1>         k;   // simple lower bound to sample size rate
+    real<lower=1>         lambda_ss; // simple lower bound to sample size rate
     real<lower=min_bound> pop; // estimated population
 }
 
 transformed parameters {
-    real x;
-    x = (k * n_samples) / pop; // back-of-the-envelope formula for centering
-}                              // distribution given sampling conditions
-
+    real lambda_pop;
+    lambda_pop = (lambda_ss * n_samples) / pop; // back-of-the-envelope formula
+}                                               // for centering distribution
+                                                // given sampling conditions
 model {
-    sample_sizes ~ poisson(k); // sample event rate
+    sample_sizes ~ poisson(lambda_ss); // sample event rate
     for (i in 1:n) {
-        freq[i] ~ poisson(x)T[1, ]; // labels counted 0 times unobservable,
-    }                               // observations are part of truncated
-}                                   // distribution
+        freq[i] ~ poisson(lambda_pop)T[1, ]; // labels counted 0 times
+    }                                        // unobservable -> all freq
+}                                            // part of truncated distribution
