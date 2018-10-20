@@ -13,12 +13,16 @@ from population import sample_counts
 from stanfuns import build_model
 
 
+def label_captures(pop, sample_sizes):
+    return flatten(map(label_samples(pop), sample_sizes))
+
+
 def main():
     pop          = 1000
     subpop       = 50
     n_samples    = 10
     sample_sizes = sample_counts(subpop, n_samples)
-    labels       = flatten(map(label_samples(pop), sample_sizes))
+    labels       = label_captures(pop, sample_sizes)
     label_counts = Counter(labels)
     freq         = list(label_counts.values())
     min_bound    = len(label_counts.keys())
