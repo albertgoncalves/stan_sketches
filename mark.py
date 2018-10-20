@@ -5,8 +5,6 @@
 
 from collections import Counter
 
-import pystan
-
 from mark_research import flatten
 from mark_research import label_samples
 from mark_research import sample_counts
