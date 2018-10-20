@@ -12,10 +12,10 @@ parameters {
 }
 
 transformed parameters {
-    real lambda_pop;
-    lambda_pop = (lambda_ss * n_samples) / pop; // back-of-the-envelope formula
-}                                               // for centering distribution
-                                                // given sampling conditions
+    real lambda_pop;                            // back-of-the-envelope formula
+    lambda_pop = (lambda_ss * n_samples) / pop; // for centering distribution
+}                                               // given sampling conditions
+
 model {
     sample_sizes ~ poisson(lambda_ss); // sample event rate
     for (i in 1:n) {
