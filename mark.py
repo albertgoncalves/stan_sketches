@@ -18,14 +18,14 @@ def label_captures(pop, sample_sizes):
 
 
 def main():
-    pop          = 1000
-    subpop       = 50
-    n_samples    = 10
-    sample_sizes = sample_counts(subpop, n_samples)
-    labels       = label_captures(pop, sample_sizes)
-    label_counts = Counter(labels)
-    freq         = list(label_counts.values())
-    min_bound    = len(label_counts.keys())
+    pop          = 1000 # population to be estimated from generated data
+    subpop       = 50   # "true" sample event rate
+    n_samples    = 10   # number of capture events
+    sample_sizes = sample_counts(subpop, n_samples)  # sample event sizes
+    labels       = label_captures(pop, sample_sizes) # sampled pop labels
+    label_counts = Counter(labels) # {label: recapture frequency}
+    freq         = list(label_counts.values()) # don't need labels, just freq!
+    min_bound    = len(label_counts.keys()) # number of unique labels
     data         = { 'n_samples'   : n_samples
                    , 'sample_sizes': sample_sizes
                    , 'n'           : len(freq)
