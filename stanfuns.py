@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from os import listdir
+from os     import listdir
 from pickle import dump
 from pickle import load
 

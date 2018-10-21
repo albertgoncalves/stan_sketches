@@ -3,7 +3,7 @@
 
 # via https://en.wikipedia.org/wiki/Mark_and_recapture#More_than_two_visits
 
-from collections import Counter
+from collections   import Counter
 
 from mark_research import flatten
 from mark_research import label_samples
