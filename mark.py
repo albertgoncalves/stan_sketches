@@ -18,7 +18,7 @@ def label_captures(pop, sample_sizes):
 def main():
     pop          = 750  # population to be estimated from generated data
     subpop       = 20   # "true" sample event rate
-    n_samples    = 10   # number of capture events
+    n_samples    = 7    # number of capture events
     sample_sizes = sample_counts(subpop, n_samples)   # sample event sizes
     labels       = label_captures(pop, sample_sizes)  # sampled pop labels
     label_counts = Counter(labels)  # {label: recapture frequency}
