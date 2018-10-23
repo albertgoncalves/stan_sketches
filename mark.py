@@ -16,10 +16,10 @@ def label_captures(pop, sample_sizes):
 
 
 def main():
-    pop          = 750  # population to be estimated from generated data
-    subpop       = 20   # "true" sample event rate
-    n_samples    = 7    # number of capture events
-    sample_sizes = sample_counts(subpop, n_samples)   # sample event sizes
+    pop          = 500  # population to be estimated from generated data
+    subpop       = 25  # "true" sample event rate
+    n_samples    = 9  # number of capture events
+    sample_sizes = sample_counts(subpop, n_samples)  # sample event sizes
     labels       = label_captures(pop, sample_sizes)  # sampled pop labels
     label_counts = Counter(labels)  # {label: recapture frequency}
     freq         = list(label_counts.values())  # don't need labels, just freq!
@@ -34,7 +34,7 @@ def main():
     model        = build_model(stan_file)
     fit          = model.sampling(data=data, n_jobs=-1, refresh=-1)
 
-    print(fit.stansummary(['pop', 'lambda_ss']))
+    print(fit.stansummary(['pop', 'sample_rate']))
 
 
 if __name__ == '__main__':
