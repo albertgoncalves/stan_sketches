@@ -34,7 +34,7 @@ def main():
     model        = build_model(stan_file)
     fit          = model.sampling(data=data, n_jobs=-1, refresh=-1)
 
-    print(fit.stansummary(['pop', 'sample_rate']))
+    print(fit.stansummary(['pop', 'lambda', 'sample_rate']))
 
 
 if __name__ == '__main__':
